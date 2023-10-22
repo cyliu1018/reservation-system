@@ -28,19 +28,16 @@ export class ReservationService {
       },
       ['email'],
     );
-    try {
-      this.LIMIT_COUNT_FOR_USER_RESERVE_BY_INVITE_CODE =
-        this.configService.getOrThrow<string>(
-          'LIMIT_COUNT_FOR_USER_RESERVE_BY_INVITE_CODE',
-        );
-
-      this.LIMIT_COUNT_FOR_USER_RESERVE_BY_MOCA_NFT =
-        this.configService.getOrThrow<string>(
-          'LIMIT_COUNT_FOR_USER_RESERVE_BY_MOCA_NFT',
-        );
-    } catch (error) {
-      console.log(error);
-    }
+    this.LIMIT_COUNT_FOR_USER_RESERVE_BY_INVITE_CODE =
+      this.configService.get<string>(
+        'LIMIT_COUNT_FOR_USER_RESERVE_BY_INVITE_CODE',
+        '1',
+      );
+    this.LIMIT_COUNT_FOR_USER_RESERVE_BY_MOCA_NFT =
+      this.configService.get<string>(
+        'LIMIT_COUNT_FOR_USER_RESERVE_BY_MOCA_NFT',
+        '3',
+      );
   }
 
   async getReservationRecord(email: string) {
