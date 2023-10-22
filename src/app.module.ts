@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
-import { ProfileModule } from './profile/profile.module';
+import { ReservationModule } from './reservation/reservation.module';
 
 @Module({
   imports: [
@@ -21,7 +21,7 @@ import { ProfileModule } from './profile/profile.module';
         synchronize: true,
       }),
     }),
-    ProfileModule,
+    ReservationModule,
   ],
   controllers: [AppController],
 })

@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsNotEmpty, Length, IsEmail } from 'class-validator';
 
-export class InsertProfileWithInviteCodeDto {
+export class InsertReservationRecordWithInviteCodeDto {
   @ApiProperty()
   @IsEmail()
   email: string;

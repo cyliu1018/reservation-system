@@ -6,16 +6,16 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { Profile } from '../db/entity';
+import { Reservation } from '../db/entity';
 import { isCodeValid } from '../util/inviteCode';
 
 @Injectable()
-export class ProfileService {
+export class ReservationService {
   constructor(
-    @InjectRepository(Profile)
-    private profileRepository: Repository<Profile>,
+    @InjectRepository(Reservation)
+    private reservationRepository: Repository<Reservation>,
   ) {
-    this.profileRepository.upsert(
+    this.reservationRepository.upsert(
       {
         email: 'nlsh710599@gmail.com',
         inviteCode: 'CHIHYEN',
@@ -29,9 +29,9 @@ export class ProfileService {
     return `Hello ${name}`;
   }
 
-  async getProfile(email: string) {
+  async getReservationRecord(email: string) {
     try {
-      const res = await this.profileRepository.findOneBy({ email });
+      const res = await this.reservationRepository.findOneBy({ email });
 
       if (!res) {
         return new BadRequestException('User not found');
@@ -51,13 +51,16 @@ export class ProfileService {
     }
   }
 
-  async insertProfileWithInviteCode(email: string, inviteCode: string) {
+  async insertReservationRecordWithInviteCode(
+    email: string,
+    inviteCode: string,
+  ) {
     try {
       if (!isCodeValid(inviteCode)) {
         return new BadRequestException('invalid invite code');
       }
 
-      const res = await this.profileRepository.findOneBy({ email });
+      const res = await this.reservationRepository.findOneBy({ email });
 
       if (res) {
         return new BadRequestException('User already exist');
