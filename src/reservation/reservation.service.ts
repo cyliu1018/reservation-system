@@ -43,10 +43,6 @@ export class ReservationService {
     }
   }
 
-  hello(name: string): string {
-    return `Hello ${name}`;
-  }
-
   async getReservationRecord(email: string) {
     try {
       const res = await this.reservationRepository.findOneBy({ email });
@@ -56,14 +52,6 @@ export class ReservationService {
       }
 
       return res;
-    } catch (error) {
-      return new InternalServerErrorException();
-    }
-  }
-
-  async checkCodeValidity(inviteCode: string) {
-    try {
-      return isCodeValid(inviteCode);
     } catch (error) {
       return new InternalServerErrorException();
     }
