@@ -19,6 +19,7 @@ export class ProfileService {
       {
         email: 'nlsh710599@gmail.com',
         inviteCode: 'CHIHYEN',
+        reserveByMocaNFT: true,
       },
       ['email'],
     );

@@ -8,11 +8,14 @@ export class Profile extends BaseEntity {
   @Column({ name: 'email', type: 'text', unique: true })
   email: string;
 
-  @Column({ name: 'invite_code', type: 'text', unique: true, nullable: true })
+  @Column({ name: 'invite_code', type: 'text', unique: true })
   inviteCode: string;
 
   @Column({ name: 'referrer', type: 'text', nullable: true })
   referrer: string;
+
+  @Column({ name: 'reserve_by_moca_nft', type: 'boolean', nullable: false })
+  reserveByMocaNFT: boolean;
 
   @Column({
     type: 'timestamp',
