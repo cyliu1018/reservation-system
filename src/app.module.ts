@@ -17,7 +17,7 @@ import { ReservationModule } from './reservation/reservation.module';
         username: configService.get<string>('PG_USER', 'postgres'),
         database: configService.get<string>('PG_DB', 'postgres'),
         password: configService.get<string>('PG_PSWD', 'docker'),
-        entities: [`${__dirname}/db/entity/*{.ts,.js}`],
+        entities: [`${__dirname}/db/*{.ts,.js}`],
         synchronize: true,
       }),
     }),

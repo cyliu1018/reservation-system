@@ -6,7 +6,7 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { Reservation } from '../db/entity';
+import { Reservation } from '../db';
 import { isCodeValid } from '../util/inviteCode';
 
 @Injectable()
