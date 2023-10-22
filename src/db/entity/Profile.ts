@@ -8,7 +8,7 @@ export class Profile extends BaseEntity {
   @Column({ name: 'email', type: 'text', unique: true })
   email: string;
 
-  @Column({ name: 'invite_code', type: 'text', unique: true })
+  @Column({ name: 'invite_code', type: 'text', unique: true, nullable: true })
   inviteCode: string;
 
   @Column({ name: 'referrer', type: 'text', nullable: true })
